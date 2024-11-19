@@ -1,0 +1,17 @@
+service: serviceUserOsman1
+
+provider:
+  name: aws
+  runtime: nodejs20.x # Utilisez nodejs20.x au lieu de nodejs21.x
+  region: eu-west-1  # Change en fonction de ta région
+
+functions:
+  app:
+    handler: app.handler
+    events:
+      - http:
+          path: /api/users/getAllUsers
+          method: get
+      - http:
+          path: /api/users/addUser
+          method: post # Ajoutez cette ligne
